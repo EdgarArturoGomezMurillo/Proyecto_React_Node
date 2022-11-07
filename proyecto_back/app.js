@@ -8,6 +8,8 @@ var database = require("./config/database");
 //var indexRouter = require('./routes/index');
 //var usersRouter = require('./routes/users');
 var auth = require("./auth/main_auth");
+var cors = require("cors");
+
 var empleadosRouter = require('./routes/empleados.router');
 var camisasRouter = require('./routes/camisas.router');
 var usuariosRouter = require("./routes/usuarios.router");
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 // mongo conection
 database.mongoConnect();
